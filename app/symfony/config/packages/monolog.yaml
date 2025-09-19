@@ -1,0 +1,17 @@
+monolog:
+  handlers:
+    main:
+      type: stream
+      path: "/var/logs/crud/app.log"
+      level: debug
+      formatter: monolog.formatter.json
+
+    console:
+      type: console
+      process_psr_3_messages: false
+      level: debug
+      formatter: monolog.formatter.json
+
+services:
+  monolog.formatter.json:
+    class: Monolog\Formatter\JsonFormatter
